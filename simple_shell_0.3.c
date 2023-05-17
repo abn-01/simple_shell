@@ -35,7 +35,7 @@ int check_command_exists(const char *command, char *path)
 			}
 			closedir(dir);
 		}
-		directory = strtok(NULL, ":")
+		directory = strtok(NULL, ":");
 	}
 	return (0);
 }
@@ -47,10 +47,11 @@ void execute_command(const char *command)
 {
 	pid_t child_pid = fork();
 	int status;
+	char *const argv[] = {NULL};
 
 	if (child_pid == 0)
 	{
-		execve(command, NULL, NULL);
+		execve(command, argv, NULL);
 		perror("execve");
 		_exit(1);
 	}
