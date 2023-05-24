@@ -1,3 +1,4 @@
+#include "shell.h"
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -9,13 +10,6 @@
 #include <dirent.h>
 #include <signal.h>
 
-#define MAX_INPUT_LENGTH 1024
-#define MAX_ARGS 64
-
-void handle_sigint(int signum);
-void parse_input(char *input, char **args);
-void execute_command(char **args);
-void handle_builtin_commands(char **args);
 /**
  * main - calls all the functions to perform
  * the shell's functionality
