@@ -8,7 +8,7 @@
 #define MAX_COMMAND_LENGTH 1000
 #define MAX_ARGUMENTS 100
 
-int main(void);
+int main(void)
 void handle_sigint(int signum);
 void parse_input(char *input, char **args);
 void execute_command(char **args);
