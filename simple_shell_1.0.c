@@ -10,7 +10,6 @@
 #include <string.h>
 #include <sys/wait.h>
 
-extern char **environ;
 /**
  * main - prints the current environment
  * Return: 0
