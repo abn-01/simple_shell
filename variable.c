@@ -9,7 +9,6 @@
 #define DELIMITERS " \t\r\n\a"
 
 /**
- * main- program ues execvp
  * Execute a command by forking a child process and using execvp.
  *
  * @param args The array of command arguments.
@@ -118,7 +117,7 @@ int main(void)
 		tokens[token_count] = NULL;
 
 		status = execute_command(tokens);
-
+		
 		free(replaced_input);
 
 		if (strcmp(input, "exit") == 0)
