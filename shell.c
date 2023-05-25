@@ -5,45 +5,35 @@
 #include <sys/wait.h>
 #include "shell.h"
 /**
- * main - Simple UNIX command line interpreter
+ * execute_command - Execute a command.
+ * @command: The command to be executed.
+ */
+void execute_command(char **args)
+{
+	printf("Executing command: %s\n", command);
+}
+/**
+ * main - Entry point of the shell program.
  *
- * Return: Always 0
+ * Return: 0 on success.
  */
 int main(void)
 {
-	char command[MAX_COMMAND_LENGTH];
-	int status;
+	char input[100];
 
 	while (1)
 	{
-		printf("#cisfun$ ");
+		printf("Enter a command: ");
+		fgets(input, sizeof(input), stdin);
 
-		if (fgets(command, sizeof(command), stdin) == NULL)
+		input[strcspn(input, "\n")] = '\0';
+
+		if (strcmp(input, "exit") == 0)
 		{
-			printf("\n");
 			break;
 		}
 
-		command[strcspn(command, "\n")] = '\0';
-
-		pid_t pid = fork();
-
-		if (pid < 0)
-		{
-			perror("Fork error");
-			exit(1);
-		}
-		else if (pid == 0)
-		{
-			execlp(command, command, NULL);
-
-			perror("Execution error");
-			exit(1);
-		}
-		else
-		{
-			waitpid(pid, &status, 0);
-		}
+		execute_command(input);
 	}
 
 	return (0);
