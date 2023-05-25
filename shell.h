@@ -1,8 +1,6 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#!/bin/sh
-
 #define MAX_INPUT_LENGTH 1024
 #define MAX_ARGS 64
 #define MAX_COMMAND_LENGTH 1000
