@@ -2,9 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/wait.h>
 #include "shell.h"
-
-#define MAX_COMMAND_LENGTH 100
 /**
  * main - Simple UNIX command line interpreter
  *
