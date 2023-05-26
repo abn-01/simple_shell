@@ -1,36 +1,33 @@
 #include "shell.h"
-
 /**
- * word_split - splits a string into tokens
- * @str: a string
- * @delim: delimeter for splitting the string
- *
- * Return: An array of pointers if successful, NULL otherwise
+ * word_split - the function splits a string into tokens
+ * @str: the string
+ * @delim: delimeter
+ * Return: array of pointers, NULL otherwise
  */
-
 char **word_split(char *str, char *delim)
 {
-	char **new = NULL;
-	int args = 0, i = 0;
+	char **up_to_date = NULL;
+	int args = 0, count = 0;
 	char *tmp = NULL;
-	int len = 0;
+	int length = 0;
 
 	args = no_of_args(str, delim);
 
-	new = malloc(sizeof(char *) * args);
-	if (!new)
+	up_to_date = malloc(sizeof(char *) * args);
+	if (!up_to_date)
 		return (NULL);
 
 	tmp = strtok(str, delim);
 	while (tmp != NULL)
 	{
-		len = _strlen(tmp) + 1;
-		new[i] = malloc(sizeof(char) * len);
-		_strcpy(new[i], tmp);
+		length = _strlen(tmp) + 1;
+		up_to_date[count] = malloc(sizeof(char) * length);
+		_strcpy(up_to_date[count], tmp);
 		tmp = strtok(NULL, delim);
-		i++;
+		count++;
 	}
-	new[i] = tmp;
+	up_to_date[count] = tmp;
 
-	return (new);
+	return (up_to_date);
 }

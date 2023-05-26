@@ -8,34 +8,34 @@
  */
 char *_getenv(char *var, char **env)
 {
-	char *path;
-	int i = 0, j = 0, k = 0, loc = 0, len = 0;
+	char *trail;
+	int count = 0, f = 0, g = 0, h = 0, length = 0;
 
-	while (env[i])
+	while (env[count])
 	{
-		j = 0;
-		while (var[j] == env[i][j])
+		f = 0;
+		while (var[f] == env[count][f])
 		{
-			if (j == 3)
+			if (f == 3)
 			{
-				loc = i;
+				h = count;
 				break;
 			}
-			j++;
+			f++;
 		}
-		if (j == 3)
+		if (f == 3)
 			break;
-		i++;
+		count++;
 	}
-	len = _strlen(env[loc]) - 4;
-	path = malloc(sizeof(char) * len);
+	length = _strlen(env[h]) - 4;
+	trail = malloc(sizeof(char) * length);
 
-	for (k = 0; env[loc][j + 2] != '\0'; k++)
+	for (g = 0; env[h][f + 2] != '\0'; g++)
 	{
-		path[k] = env[loc][j + 2];
-		j++;
+		trail[g] = env[h][f + 2];
+		f++;
 	}
-	path[k] = '\0';
+	trail[g] = '\0';
 
-	return (path);
+	return (trail);
 }
