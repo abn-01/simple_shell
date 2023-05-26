@@ -1,37 +1,34 @@
 #include "shell.h"
 
 void free_str(char *buffer, char *getline_cp);
-
 /**
- * main - Entry point
- * @argc: argument count
- * @argv: argument vector
- * @env: environment variables
- *
- * Return: 0 is success
+ * main - the entry point
+ * @argc: argument
+ * @argv: array of argument
+ * @env: environment
+ * Return: 0
  */
-
 int main(__attribute__((unused))int argc, char *argv[], char *env[])
 {
-	size_t bytes;
-	int retval = 0, retvalb = 0;
+	size_t byt;
+	int regain = 0, regainb = 0;
 
 	while (1)
 	{
 		char *buffer = NULL, *delim = " ", *getline_cp, **tokens = NULL, *filename;
-		int mode = 0, args = 0, a = 0, ret = 0;
+		int plan = 0, args = 0, j = 0, reg = 0;
 
-		mode = isatty(STDIN_FILENO);
-		if (mode)
+		plan = isatty(STDIN_FILENO);
+		if (plan)
 		{
-			ret = get_prompt();
-			a = 1;
+			reg = get_prompt();
+			j = 1;
 		}
-		ret = getline(&buffer, &bytes, stdin);
-		if (ret == -1)
+		reg = getline(&buffer, &byt, stdin);
+		if (reg == -1)
 		{
-			write(1, "\n", a);
-			getline_error_handler(buffer, retvalb);
+			write(1, "\n", j);
+			getline_error_handler(buffer, regainb);
 		}
 		arg_count(1);
 		buffer[_strlen(buffer) - 1] = '\0';
@@ -42,30 +39,27 @@ int main(__attribute__((unused))int argc, char *argv[], char *env[])
 			tokens = word_split(getline_cp, delim);
 			free_str(buffer, getline_cp);
 			filename = _strdup(tokens[0]);
-			retvalb = exec_builtin(tokens, env, filename, argv);
-			if (retvalb == -1)
+			regainb = exec_builtin(tokens, env, filename, argv);
+			if (regainb == -1)
 			{
-				retval = _fork(tokens, env, argv, filename);
+				regain = _fork(tokens, env, argv, filename);
 				free(filename);
 				free_grid(tokens, args);
-				if (retval == 127)
-					retvalb = retval;
+				if (regain == 127)
+					regainb = regain;
 			}
 		}
 		else
 			free_str(buffer, getline_cp);
 	}
-	return (retval);
+	return (regain);
 }
-
 /**
- * free_str - frees all dynamically allocated memory in shell_clone.c
- * @buffer: strinh to free
- * @getline_cp: string to free
- *
- * Return: Void
+ * free_str - frees all dynamically allocated memory
+ * @buffer: the string to free
+ * @getline_cp: the string to free
+ * Return: void
  */
-
 void free_str(char *buffer, char *getline_cp)
 {
 
