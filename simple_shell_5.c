@@ -1,17 +1,17 @@
 #include "shell.h"
+
 /**
  * our_execve - passes correct full path to execve
- * @tokens: command and args entered
- * @environ: pointer to array of strings (environment variables)
- * @fn: the full path to commands
- *
- * Description: give correct args to execve
+ * @tokens: the command
+ * @environ: pointer to array of strings
+ * @fn: the full path
+ * Description: give correct args
  * Return: nothing
  */
-int our_execve(char *tokens[], char *environ[], char *fn)
+int our_execve(char *index[], char *environ[], char *function)
 {
-	tokens[0] = fn;
-	execve(tokens[0], tokens, environ);
+	index[0] = function;
+	execve(index[0], index, environ);
 
 	return (-1);
 }

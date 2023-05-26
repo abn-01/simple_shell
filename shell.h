@@ -41,8 +41,8 @@ void define_alias(char *alias_name, char *alias_value);
  */
 typedef struct get_inbuilt
 {
-	char *cmd;
-	int (*func)(char **tokens, char **env, char **);
+        char *cmd;
+        int (*func)(char **tokens, char **env, char **);
 } get_func;
 
 void cmd_not_found_error(char *argv, char *token);
@@ -77,7 +77,7 @@ int exec_builtin(char **, char **, char *, char **);
 int our_exit(char **tok, char **env, char **);
 int print_env(char **, char **env, char **);
 int stringcomp(char *, char *);
-int our_execve(char *tokens[], char *environ[], char *fn);
+int our_execve(char *index[], char *environ[], char *function);
 
 
 #endif
