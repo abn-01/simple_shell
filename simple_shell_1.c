@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  * abs_path - creates absolute path if user only give cmd name
  * @token: tokenised user input

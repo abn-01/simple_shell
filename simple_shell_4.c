@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  * getline_error_handler - handle errors from getline & handle EOF
  * @buffer: user input

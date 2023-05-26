@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 void free_str(char *buffer, char *getline_cp);
 
