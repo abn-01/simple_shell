@@ -1,25 +1,22 @@
 #include "shell.h"
-
 /**
- * cmd_not_found_error - prints error message on stdout
- * @argv: the first element of argv
- * @token: the command entered on the cmdline
- *
- * Return: Void
+ * cmd_not_found_error - prints error message
+ * @argv: first element of arguments
+ * @token: the command
+ * Return: void
  */
-
 void cmd_not_found_error(char *argv, char *token)
 {
-	int len;
-	char i;
+	int length;
+	char count;
 
-	i = arg_count(0);
-	len = _strlen(argv);
-	write(1, argv, len);
-	len = _strlen(token);
+	count = arg_count(0);
+	length = _strlen(argv);
+	write(1, argv, length);
+	length = _strlen(token);
 	write(1, ": ", 2);
-	write(1, &i, 1);
+	write(1, &count, 1);
 	write(1, ": ", 2);
-	write(1, token, len);
+	write(1, token, length);
 	write(1, ": not found\n", 12);
 }
