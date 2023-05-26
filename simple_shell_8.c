@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * word_split - splits a string into tokens

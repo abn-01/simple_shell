@@ -1,15 +1,14 @@
-#include "main.h"
+#include "shell.h"
 /**
- * getline_error_handler - handle errors from getline & handle EOF
- * @buffer: user input
- * @retval: return value from shell_clone.c
- *
+ * getline_error_handler - handle errors
+ * @buffer: input
+ * @regain: return value
  * Return: void
  */
-void getline_error_handler(char *buffer, int retval)
+void getline_error_handler(char *buffer, int regain)
 {
 	free(buffer);
-	if (retval != 2 && retval != 127)
-		retval = 0;
-	_exit(retval);
+	if (regain != 2 && regain != 127)
+		regain = 0;
+	_exit(regain);
 }

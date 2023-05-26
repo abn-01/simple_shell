@@ -1,22 +1,19 @@
-#include "main.h"
-
+#include "shell.h"
 /**
- * _fork - handles the fork
- * @tokens: an array of pointers to strings
- * @env: an array of pointers to strings, specifically env variables
- * @argv: the argv[0] string
- * @filename: a string containing the absolute path of a file
- *
- * Return: Void
+ * _fork - handle the fork
+ * @tokens: array of pointers to strings
+ * @env: array of pointers to strings(env)
+ * @argv: the argument string
+ * @filename: a string containing the path of a file
+ * Return: void
  */
-
 int _fork(char **tokens, char **env, char **argv, char *filename)
 {
-	int retval = 0, pid = 0, status, exit_status = 0;
+	int regain = 0, pid = 0, position, exit_position = 0;
 
-	retval = file_check(tokens, env);
+	regain = file_check(tokens, env);
 
-	if (retval != 0)
+	if (regain != 0)
 	{
 		cmd_not_found_error(argv[0], filename);
 		return (127);
@@ -29,10 +26,10 @@ int _fork(char **tokens, char **env, char **argv, char *filename)
 	}
 	else if (pid == 0)
 	{
-		if (retval == 0)
+		if (regain == 0)
 			our_execve(tokens, env, tokens[0]);
 	}
 	else
-		wait(&status);
-	return (exit_status);
+		wait(&position);
+	return (exit_position);
 }

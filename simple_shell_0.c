@@ -1,23 +1,21 @@
-#include "main.h"
+#include "shell.h"
 
 /**
- * _strcpy - Entry point
- * @dest: pointer to a string, src is copied to dest
- * @src: pointer to a string, src is copied to dest
- *
- * Return: dest - pointer to a string
+ * _strcpy - The entry point
+ * @dest: pointer to a string
+ * @src: pointer to a string
+ * Return: dest
  */
-
 char *_strcpy(char *dest, char *src)
 {
-	int count = 0;
+	int i = 0;
 
-	while (src[count] != '\0')
+	while (src[i] != '\0')
 	{
-		dest[count] = src[count];
-		count++;
+		dest[i] = src[i];
+		i++;
 	}
-	dest[count] = src[count];
+	dest[i] = src[i];
 
 	return (dest);
 }
